@@ -1,0 +1,57 @@
+PROGRAMA SistemaBoletosteleferico
+
+INICIALIZAR
+    Establecer color de fondo a gris claro
+    Establecer precios totales para adultos, niños y tercera edad
+    Establecer asientos disponibles iniciales a 60
+    Establecer bandera de continuar a verdadero
+
+MIENTRAS continuar sea verdadero
+    MOSTRAR menú principal (Comprar boleto, Ver sistema, Salir)
+    LEER elección del usuario
+
+    SEGÚN elección del usuario
+        1: Comprar boleto
+            INGRESAR y VALIDAR nombre, apellido, cédula y edad del cliente
+            SI edad < 18 ENTONCES
+                MOSTRAR mensaje de error
+                CONTINUAR al menú principal
+            FIN SI
+
+            INGRESAR y VALIDAR número de pasajeros (1-60)
+            INGRESAR número de adultos, tercera edad y niños
+            VALIDAR que el total coincida con la suma de tipos de pasajeros
+
+            MOSTRAR e INGRESAR tramo de viaje
+            CALCULAR precio del boleto basado en el tramo
+
+            SI el tramo es hasta la estación final Y hay niños
+                VERIFICAR si hay niños menores de 3 años
+                SI hay niños menores de 3 años
+                    MOSTRAR mensaje de error
+                    CONTINUAR al menú principal
+                FIN SI
+            FIN SI
+
+            CALCULAR precio total
+            MOSTRAR precio total y mensaje de éxito
+            ACTUALIZAR asientos disponibles
+
+        2: Ver sistema
+            MOSTRAR menú del sistema (Boletos vendidos, Asientos disponibles, Reporte de ventas)
+            LEER elección del usuario
+            SEGÚN elección del usuario
+                1: MOSTRAR número de boletos vendidos
+                2: MOSTRAR número de asientos disponibles
+                3: MOSTRAR reporte de ventas (total vendido, ingreso total)
+            FIN SEGÚN
+
+        3: Salir
+            ESTABLECER continuar a falso
+
+        DE OTRO MODO:
+            MOSTRAR mensaje de opción inválida
+    FIN SEGÚN
+FIN MIENTRAS
+
+FIN PROGRAMA
